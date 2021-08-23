@@ -1,12 +1,16 @@
  html{
    background: #AB6707;
  }
+
+ #root{
+   background:#AB6707 ;
+ }
  
  #form{
    display:flex;
    margin-top:30px;
-   margin-left:20%;
-   margin-right:20%;
+   margin-left:30%;
+   margin-right:30%;
    padding:10px 0px 10px 0px;
    justify-content: center;
    background-color:#613900;
@@ -17,10 +21,9 @@
    
  }
 #letters{
-  display: inline;
-  margin-top: 20px;
-  margin-right: 30px;
-  margin-left:20px;
+  display:block;
+  padding-left:30px;
+  color:#E3A54D;
 
 }
 
@@ -28,6 +31,7 @@
   display: flex;
   justify-content: center;
   margin-top:20px;
+
  
 }
 

@@ -55,11 +55,13 @@ class App extends React.Component {
             </div>
           </Form.Text>
         </Form>
+        {this.state.location.place_id &&
         <div id="cardMap">
         <Card>
           <Card.Img variant="top" src={this.state.map} />
         </Card>
         </div>
+          }
       </>
     );
   }
