@@ -3,7 +3,7 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import "./index.css";
+import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,8 +12,6 @@ class App extends React.Component {
       searchQuery: "",
       location: {},
       map: "",
-      weather: [],
-      movie: [],
     };
   }
 
@@ -22,15 +20,13 @@ class App extends React.Component {
     try {
       const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITYKEY}&q=${this.state.searchQuery}&format=json`;
       const response = await axios.get(API);
-      console.log("Location IQ Data:", response);
       this.setState({ location: response.data[0] });
 
       const map = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITYKEY}&center=${this.state.location.lat},${this.state.location.lon}&zoom=18`;
       const respond = await axios.get(map);
-      console.log(respond);
       this.setState({ map: respond.config.url });
     } catch {
-      window.alert("ERROR: Unable to Complete your Request");
+      window.alert("ERROR: Unable to geocode");
     }
   };
 
@@ -47,19 +43,23 @@ class App extends React.Component {
           <Button id="button" onClick={this.getLocation}>
             Explore!
           </Button>
-          <Form.Text id="letters">
-            <br />
+          <Form.Text>
+            <div id="letters">
             Location: {this.state.location.display_name}
-            <br />
+            </div>
+            <div id="letters">
             Longitude: {this.state.location.lon}
-            <br />
+            </div>
+            <div id="letters">
             Latitude: {this.state.location.lat}
-            <br />
+            </div>
           </Form.Text>
         </Form>
-        <Card style={{ width: "20rem" }}>
-          <Card.Img id="card" variant="top" src={this.state.map} />
+        <div id="cardMap">
+        <Card>
+          <Card.Img variant="top" src={this.state.map} />
         </Card>
+        </div>
       </>
     );
   }
