@@ -61,8 +61,8 @@ class App extends React.Component {
         Latitude: {this.state.location.lat}<br />
         </Form.Text>
       </Form>  
-
-      <Card  style={{ width: '20rem' }}>
+      
+      <Card  style={{ width: '40rem' }}>
         <Card.Img id="card" variant="top" src={this.state.map} />
       </Card>
 
