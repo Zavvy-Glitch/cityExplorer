@@ -3,7 +3,7 @@
 ![WRRC](https://user-images.githubusercontent.com/84699682/130512220-38fee4b2-427d-41b1-9068-3ddfca427cae.JPG)
 
 **Author**: Chattray Chea
-**Version**: 1.0.2
+**Version**: 1.0.6
 
 ## Overview
 
@@ -34,9 +34,11 @@ Library: React.JS
 
 08-24-2021 17:45 - Application now has functionality in pulling information from MOVIE API / WEATHER API. All CSS and stylings have been reset at this time. More items being rendered caused a bit of confusion when targetting specific objects to give attributes. Will require additions of classes and id's to various components. Items with react-bootstrap designs have been left as is.
 
+08-25-2021 16:42 - Application has been deployed to Netlify for user adaptability. Application can now pull data from a server rather than a localhost.
+
 ## Credit and Collaborations
 
-Collaboration with: Kyle Cohen, JB Tellez, Hexx King, Chance Harmon
+Collaboration with: Kyle Cohen, JB Tellez, Hexx King, Chance Harmon, Kjell Overholt
 
 ## Lab: Class 06
 
@@ -73,5 +75,3 @@ Estimate of time needed to complete: 2 hours
 Start time: 12:50
 
 Finish time: 16:45
-
-Actual time needed to complete: 3hrs 55 minutes
