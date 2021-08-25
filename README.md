@@ -62,6 +62,16 @@ Finish time: 18:04
 
 Actual time needed to complete: 5hrs 19 minutes
 
+## Lab: Class 08
+
 ![WRRCv2](https://user-images.githubusercontent.com/84699682/130862888-de13dd5a-dfa8-4235-acaf-c01042b857d6.JPG)
 
+Name of feature: Addition of GET routes for deployable server calls.
 
+Estimate of time needed to complete: 2 hours
+
+Start time: 12:50
+
+Finish time: 16:45
+
+Actual time needed to complete: 3hrs 55 minutes
