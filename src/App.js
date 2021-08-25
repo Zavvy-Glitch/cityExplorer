@@ -33,13 +33,13 @@ class App extends React.Component {
       this.setState({ map: respond.config.url });
 
       // const weather = `http://localhost:3333/weather?searchQuery=${this.state.searchQuery}`;
-      const weather = `https://city-explorer-server-v2.herokuapp.com/weather?searchQuery=${this.state.searchQuery}`
+      const weather = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}`;
       console.log(weather);
       const responseWeather = await axios.get(weather);
       this.setState({ weather: responseWeather.data });
 
       // const movies = `http://localhost:3333/movies?searchQuery=${this.state.searchQuery}`;
-      const movies = `https://city-explorer-server-v2.herokuapp.com/movies?searchQuery=${this.state.searchQuery}`
+      const movies = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.searchQuery}`
       console.log(movies);
       const responseMovie = await axios.get(movies);
       this.setState({ movie: responseMovie.data });
