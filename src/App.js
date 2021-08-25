@@ -78,13 +78,13 @@ class App extends React.Component {
           <Card.Img id="card" variant="top" src={this.state.map} />
         </Card>
 
-        {this.state.weather.length && (
+        {this.state.weather.length > 0 && (
           <Weather
             weather={this.state.weather}
             searchQuery={this.state.searchQuery}
           />
         )}
-        {this.state.movie.length && (
+        {this.state.movie.length > 0 && (
           <Movies
             movie={this.state.movie}
             searchQuery={this.state.searchQuery}
