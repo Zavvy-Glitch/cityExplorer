@@ -13,7 +13,7 @@ class Weather extends React.Component {
             <Row md={4} className="g-4">
               {this.props.weather.map((value, idx) => (
                 <Col>
-                  <Card key={idx} style={{ width: "15rem" }}>
+                  <Card key={idx} style={{width: "17rem", height:"12rem"}}>
                     <Card.Body>
                       <Card.Text>{value.date}</Card.Text>
                       <Card.Text>{value.description}</Card.Text>
