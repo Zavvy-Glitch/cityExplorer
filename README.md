@@ -3,7 +3,7 @@
 ![WRRC](https://user-images.githubusercontent.com/84699682/130512220-38fee4b2-427d-41b1-9068-3ddfca427cae.JPG)
 
 **Author**: Chattray Chea
-**Version**: 1.0.6
+**Version**: 1.0.8
 
 ## Overview
 
@@ -75,3 +75,16 @@ Estimate of time needed to complete: 2 hours
 Start time: 12:50
 
 Finish time: 16:45
+
+## Lab: Class 09
+
+Name of feature: Componentization of Frontend/Backend App
+
+Estimate of time needed to complete: 4hrs
+
+Start time: 12:30pm
+
+Finish time: unknown as of now
+
+Actual time needed to complete: unknown as of now
+
