@@ -1,5 +1,5 @@
-import axios from "axios";
 import React from "react";
+import functions from "./fetcher";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -16,54 +16,28 @@ class App extends React.Component {
       map: "",
       weather: [],
       movie: [],
+      lat: [],
+      lon: [],
     };
   }
 
-  getLocation = async () => {
-    try {
-      const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITYKEY}&q=${this.state.searchQuery}&format=json`;
-      const response = await axios.get(API);
-      this.setState({ location: response.data[0] });
-
-      const map = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITYKEY}&center=${this.state.location.lat},${this.state.location.lon}&zoom=18`;
-      const respond = await axios.get(map);
-      this.setState({ map: respond.config.url });
-    } catch (error) {
-      window.alert("ERROR: Unable to Complete your Request", error);
-    }
-  };
-  getWeather = async () => {
-    try {
-      // const weather = `http://localhost:3333/weather?searchQuery=${this.state.searchQuery}`;
-      const weather = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}`;
-      const responseWeather = await axios.get(weather);
-      console.log(responseWeather.data);
-      this.setState({ weather: responseWeather.data });
-    } catch (error) {
-      window.alert("ERROR: Unable to Complete your Request", error);
-    }
-  };
-  getMovies = async () => {
-    try {
-      // const movies = `http://localhost:3333/movies?searchQuery=${this.state.searchQuery}`;
-      const movies = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.searchQuery}`;
-      const responseMovie = await axios.get(movies);
-      this.setState({ movie: responseMovie.data });
-    } catch (error) {
-      window.alert("ERROR: Unable to Complete your Request", error);
-    }
-  };
-  handleFunction = (e) => {
+  handleFunction = async (e) => {
     e.preventDefault();
-    console.log("here");
-    this.getLocation();
-    this.getWeather();
-    this.getMovies();
+    const locationResult = await functions.getLocation(this.state.searchQuery);
+    const weatherResult = await functions.getWeather(this.state.searchQuery);
+    const movieResult = await functions.getMovies(this.state.searchQuery);
+    this.setState({
+      location: locationResult,
+      weather: weatherResult,
+      movie: movieResult,
+      map: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITYKEY}&center=${locationResult.lat},${locationResult.lon}&zoom=18`,
+    });
   };
 
   updateSearch = (e) => this.setState({ searchQuery: e.target.value });
 
   render() {
+    console.log(this.state);
     return (
       <>
         <Form id="form" onSubmit={this.handleFunction}>
