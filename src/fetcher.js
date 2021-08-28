@@ -1,11 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
-
-const getLocation = async (searchQuery, lat, lon) => {
+const getLocation = async (searchQuery) => {
   try {
     const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITYKEY}&q=${searchQuery}&format=json`;
     const response = await axios.get(API);
-    console.log(response.data)
     return response.data[0];
   } catch (error) {
     window.alert("ERROR: Unable to Complete your Request", error);
@@ -17,7 +15,6 @@ const getWeather = async (searchQuery) => {
     // const weather = `http://localhost:3333/weather?searchQuery=${this.state.searchQuery}`;
     const weather = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${searchQuery}`;
     const responseWeather = await axios.get(weather);
-    console.log(responseWeather.data);
     return responseWeather.data;
   } catch (error) {
     window.alert("ERROR: Unable to Complete your Request", error);
@@ -35,6 +32,6 @@ const getMovies = async (searchQuery) => {
   }
 };
 
-const functions = {getLocation, getWeather, getMovies}
+const functions = { getLocation, getWeather, getMovies };
 
 export default functions;
